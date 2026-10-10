@@ -228,7 +228,7 @@ button { font: inherit; cursor: pointer; }
 .section-head { max-width: 680px; margin-bottom: 32px; }
 .section-head h2 { font-size: clamp(1.8rem, 7vw, 2.8rem); font-weight: 800; margin-bottom: .8rem; color: var(--navy-900); }
 .section-head p:not(.eyebrow) { color: var(--muted); font-size: 1.02rem; }
-.section-head-sub { margin-top: 64px; }
+.section-head-sub { margin-top: 64px; max-width: none; }
 
 /* ---------- Bella Vita ---------- */
 .bella { background: var(--bg-soft); }
@@ -359,6 +359,14 @@ button { font: inherit; cursor: pointer; }
 .card-city .ico { color: var(--cyan-600); }
 .card-note { color: var(--muted); font-size: .9rem; }
 .card-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 12px; }
+.sold {
+  flex: 1 1 100%;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 44px; padding: .5em 1em; border-radius: 999px;
+  background: var(--navy); color: #fff;
+  font-weight: 800; font-size: .95rem; letter-spacing: .08em; text-transform: uppercase;
+}
+.sold .ico { width: 22px; height: 22px; padding: 3px; border-radius: 50%; background: var(--cyan); color: #fff; }
 
 .delivered {
   display: grid; grid-auto-flow: column; grid-auto-columns: 80%; gap: 16px;
@@ -406,6 +414,7 @@ button { font: inherit; cursor: pointer; }
 }
 .steps p { color: rgba(255,255,255,.85); font-size: .97rem; }
 .steps strong { color: #fff; }
+.steps a { color: #7fe3f0; font-weight: 700; }
 .mcmv-cta { margin-top: 36px; }
 .mcmv-cta .btn { width: 100%; }
 .disclaimer { margin-top: 28px; font-size: .74rem; color: rgba(255,255,255,.6); line-height: 1.5; }
