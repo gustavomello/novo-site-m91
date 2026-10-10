@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "site",
+      "runtimeExecutable": "powershell",
+      "runtimeArgs": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "C:\\Users\\gusta\\AppData\\Local\\Temp\\claude\\C--Users-gusta-OneDrive-Documents-GitHub-novo-site-m91\\d8e391eb-d1e8-4875-b9e3-edc719ad887b\\scratchpad\\serve.ps1", "-Root", "C:\\Users\\gusta\\OneDrive\\Documents\\GitHub\\novo site m91", "-Port", "8091"],
+      "port": 8091
+    }
+  ]
+}

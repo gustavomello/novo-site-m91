@@ -166,7 +166,7 @@ button { font: inherit; cursor: pointer; }
 .hero-content { padding-top: calc(var(--header-h) + 24px); padding-bottom: 96px; }
 .hero .eyebrow { color: #7fe3f0; }
 .hero-title { font-size: clamp(2.35rem, 10.5vw, 5.2rem); font-weight: 800; letter-spacing: -.035em; line-height: 1.02; margin-bottom: 1.1rem; }
-.hero-title .line { display: block; overflow: hidden; padding-bottom: .06em; }
+.hero-title .line { display: block; overflow: hidden; padding-bottom: .16em; margin-bottom: -.1em; }
 .hero-title .line > span { display: inline-block; }
 .hero-title .line:first-child { color: #7fe3f0; }
 .hero-lead { font-size: 1.05rem; max-width: 34em; color: rgba(255,255,255,.9); margin-bottom: 1.6rem; }
@@ -349,7 +349,14 @@ button { font: inherit; cursor: pointer; }
 .chip-new { background: var(--cyan-600); }
 .chip-work { background: #e58b0b; }
 .chip-done { background: var(--wa); }
-.dots { position: absolute; bottom: 4px; right: 4px; display: flex; }
+.illus {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 22px 12px 8px;
+  background: linear-gradient(0deg, rgba(18,29,64,.75), rgba(18,29,64,0));
+  color: #fff; font-size: .62rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  pointer-events: none;
+}
+.dots { position: absolute; bottom: 0; right: 4px; display: flex; z-index: 1; }
 .dots button { width: 32px; height: 32px; border: 0; background: none; padding: 0; display: grid; place-items: center; }
 .dots button::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,.6); box-shadow: 0 0 0 1px rgba(0,0,0,.15); transition: transform .2s, background-color .2s; }
 .dots button[aria-pressed="true"]::before { background: #fff; transform: scale(1.3); }
@@ -377,9 +384,20 @@ button { font: inherit; cursor: pointer; }
 .delivered::-webkit-scrollbar { display: none; }
 .mini { scroll-snap-align: center; background: #fff; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); }
 .mini img { width: 100%; aspect-ratio: 560 / 321; object-fit: cover; }
-.mini > div { padding: 16px; }
+.mini-media { position: relative; overflow: hidden; }
+.ribbon {
+  position: absolute; top: 26px; right: -46px; width: 190px;
+  transform: rotate(45deg);
+  background: var(--navy); color: #fff;
+  text-align: center; padding: 6px 0;
+  font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  border-top: 2px solid var(--cyan); border-bottom: 2px solid var(--cyan);
+  box-shadow: 0 4px 12px rgba(0,0,0,.3);
+}
+.mini > div:not(.mini-media) { padding: 16px; }
 .mini h3 { font-size: 1.12rem; font-weight: 800; margin: 10px 0 4px; color: var(--navy-900); }
 .mini p { color: var(--muted); font-size: .9rem; }
+.mini .card-city { margin-bottom: 6px; }
 
 /* ---------- Minha Casa Minha Vida ---------- */
 .mcmv { background: linear-gradient(160deg, var(--navy) 0%, var(--navy-900) 100%); color: #fff; position: relative; overflow: hidden; }
@@ -417,7 +435,7 @@ button { font: inherit; cursor: pointer; }
 .steps a { color: #7fe3f0; font-weight: 700; }
 .mcmv-cta { margin-top: 36px; }
 .mcmv-cta .btn { width: 100%; }
-.disclaimer { margin-top: 28px; font-size: .74rem; color: rgba(255,255,255,.6); line-height: 1.5; }
+.disclaimer { margin-top: 28px; font-size: 1.02rem; color: rgba(255,255,255,.82); }
 
 /* ---------- Qualidade ---------- */
 .quality { padding: 64px 0; }
@@ -439,7 +457,7 @@ button { font: inherit; cursor: pointer; }
 .addr { display: flex; gap: 8px; color: var(--muted); font-size: .95rem; margin-bottom: 18px; }
 .addr .ico { color: var(--cyan-600); margin-top: .2em; }
 .contact-actions { display: grid; gap: 10px; }
-.consent { font-size: .85rem; color: var(--muted); margin-top: 24px; text-align: center; }
+.consent { font-size: 1.02rem; color: var(--muted); margin-top: 24px; text-align: center; }
 
 /* ---------- Rodapé ---------- */
 .site-footer { background: var(--navy-900); color: rgba(255,255,255,.75); padding: 56px 0 calc(24px + env(safe-area-inset-bottom)); font-size: .92rem; }
@@ -504,7 +522,8 @@ button { font: inherit; cursor: pointer; }
   .footer-grid { grid-template-columns: 1.4fr 1fr 1fr; }
 }
 
-@media (min-width: 1024px) {
+/* Menu completo só quando cabe (logo + 5 links + botão) */
+@media (min-width: 1200px) {
   .menu-toggle { display: none; }
   .nav {
     position: static; inset: auto; padding: 0; background: none; box-shadow: none;
@@ -516,7 +535,10 @@ button { font: inherit; cursor: pointer; }
   .nav a:not(.btn):hover::after { transform: scaleX(1); }
   .site-header.is-solid .nav a:not(.btn) { color: var(--ink); }
   .nav .nav-cta { margin: 0; min-height: 44px; }
+  .nav a { white-space: nowrap; }
+}
 
+@media (min-width: 1024px) {
   .hero-content { padding-bottom: 120px; }
   .hero-shade {
     background:
