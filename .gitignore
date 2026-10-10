@@ -1,0 +1,6 @@
+# Arquivos de trabalho: ficam só no computador, não vão para o GitHub nem para o site
+assets/
+old website/
+
+# Configuração local do Claude (servidor de visualização)
+.claude/
